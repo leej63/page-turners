@@ -1,17 +1,34 @@
-import { Link } from "react-router-dom";
-
+import { NavLink } from "react-router-dom";
+import "./nav.css"; 
 
 function Nav() {
-    return (
+  return (
+    <div>
+      <header className="banner">
+        <h1>Page Turner</h1>
+      </header>
     <nav className="nav nav-tabs mb-2">
-        <Link className="nav-link" to="/">Home</Link>
-        <Link className="nav-link" to="/profile">Profile</Link>
-        <Link className="nav-link" to="/register">Register</Link>
-        <Link className="nav-link" to="/login">Login</Link>
-        <Link className="nav-link" to="/search">Search</Link>
-        <Link className="nav-link" to="/details">Details</Link>
-   </nav>
-    )
+      <NavLink className="nav-link" activeClassName="active" exact to="/">
+        Home
+      </NavLink>
+      <NavLink className="nav-link" activeClassName="active" to="/profile">
+        Profile
+      </NavLink>
+      <NavLink className="nav-link" activeClassName="active" to="/register">
+        Register
+      </NavLink>
+      <NavLink className="nav-link" activeClassName="active" to="/login">
+        Login
+      </NavLink>
+      <NavLink className="nav-link" activeClassName="active" to="/search">
+        Search
+      </NavLink>
+      <NavLink className="nav-link" activeClassName="active" to="/details">
+        Details
+      </NavLink>
+    </nav>
+    </div>
+  );
 }
 
 export default Nav;

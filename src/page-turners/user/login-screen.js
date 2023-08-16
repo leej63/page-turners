@@ -3,7 +3,8 @@ import Nav from "../../nav";
 import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
 import { loginThunk } from "../services/auth-thunks";
-
+import { NavLink } from "react-router-dom";
+import "./user.css"; 
 
 function LoginScreen() {
     const [username, setUsername] = useState("");
@@ -20,23 +21,47 @@ function LoginScreen() {
         }
     };
     return (
-        <div>
-            <Nav/>
-            <h1>Login Screen</h1>
-            <div className="mt-2">
-                <label className="form-label">Username</label>
-                <input className="form-control" type="text" value={username}
-                       onChange={(event) => setUsername(event.target.value)}/>
-            </div>
-            <div className="mt-2">
-                <label className="form-label">Password</label>
-                <input className="form-control" type="password" value={password}
-                       onChange={(event) => setPassword(event.target.value)}/>
-            </div>
-            <button className="btn btn-primary mt-2" onClick={handleLogin}>
-            Login
-            </button>
-        </div>
-    );
-};
+    <div className="login-container">
+      <Nav />
+      <div className="login-form">
+        <h1 className="login-title">Login</h1>
+        <form>
+          <div className="form-group mt2">
+            <label htmlFor="username" className="form-label">
+              Username
+            </label>
+            <input
+              className="form-control"
+              type="text"
+              id="username"
+              placeholder="Enter your username"
+              value={username}
+              onChange={(event) => setUsername(event.target.value)}
+            />
+          </div>
+          <div className="form-group mt2">
+            <label htmlFor="password" className="form-label">
+              Password
+            </label>
+            <input
+              className="form-control"
+              type="password"
+              id="password"
+              placeholder="Enter your password"
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+            />
+          </div>
+          <button className="btn btn-primary mt-2" onClick={handleLogin}>Login</button>
+          <div className="mt-2">
+            <NavLink className="nav-link" activeClassName="active" exact to="/register">
+                Don't have an account?    
+            </NavLink>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+}
+
 export default LoginScreen;

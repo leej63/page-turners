@@ -1,4 +1,6 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { deleteBookThunk } from "../services/books-thunks";
 import BookStats from "./book-stats";
 
 
@@ -19,6 +21,10 @@ const BookItem = (
         }
     }
 ) => {
+    const dispatch = useDispatch();
+    const deleteBookHandler = (id) => {
+        dispatch(deleteBookThunk(id))
+    }
     return (
         <div>
             <li className="list-group-item">

@@ -9,10 +9,14 @@ import SearchScreen from './page-turners/search';
 import DetailScreen from './page-turners/detail-screen';
 import { configureStore } from '@reduxjs/toolkit';
 import{ Provider } from 'react-redux';
+import authReducer from './page-turners/reducers/auth-reducer';
+import booksReducer from './page-turners/reducers/books-reducer';
 const store = configureStore(
-  {reducer: {}}
-)
-
+  {reducer: {
+    books: booksReducer,
+    user: authReducer
+  }
+});
 
 function App() {
   return (

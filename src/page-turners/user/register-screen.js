@@ -11,6 +11,7 @@ function RegisterScreen() {
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [role, setRole] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleRegister = async () => {
@@ -29,6 +30,22 @@ function RegisterScreen() {
       <div className="register-form">
         <h1 className="register-title">Register</h1>
         <form>
+          <div className="form-group mt-2">
+            <label htmlFor="role" className="form-label">
+              Role
+            </label>
+            <select
+              className="form-control"
+              id="role"
+              value={role} // Store selected role in state
+              onChange={(event) => setRole(event.target.value)}
+            >
+              <option value="user">User</option>
+              <option value="admin">Admin</option>
+              <option value="author">Author</option>
+            </select>
+          </div>
+          
           <div className="form-group mt-2">
             <label className="form-label" htmlFor="username">
               Username

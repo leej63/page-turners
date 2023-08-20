@@ -10,6 +10,9 @@ const authSlice = createSlice({
         [loginThunk.fulfilled]: (state, { payload }) => {
             state.currentUser = payload;
         },
+        [loginThunk.rejected]: (state, { payload }) => {
+            state.currentUser = null;
+        },
         [logoutThunk.fulfilled]: (state) => {
             state.currentUser = null;
         },

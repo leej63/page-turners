@@ -11,17 +11,48 @@ function RegisterScreen() {
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [role, setRole] = useState("");
+  const [role, setRole] = useState("user");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const handleRegister = async () => {
-    try {
-      await dispatch(
-        registerThunk({ username, password, firstName, lastName })
-      );
-      navigate("/tuiter/profile");
-    } catch (e) {
-      alert(e);
+    setError("");
+    let response = await dispatch(registerThunk({ username, password, firstName, lastName, role }));
+
+    if (response.error) {
+      console.log(response)
+      if (response.error.message.includes("409")) {
+        console.log("Username already exists in database");
+        setError("Username already exists in database");
+        document.getElementById("username").focus();
+      } else {
+        
+        if (!username) {
+          document.getElementById("username").focus();
+          setError("Empty username");
+          return;
+        }
+        if (!password) {
+          document.getElementById("password").focus();
+          setError("Empty password");
+          return;
+        }
+        if (!firstName) {
+          document.getElementById("firstName").focus();
+          setError("Empty first name");
+          return;
+        }
+        if (!lastName) {
+          document.getElementById("lastName").focus();
+          setError("Empty last name");
+          return;
+        }
+
+      }
+    } else {
+      console.log("success");
+      navigate("/profile");
     }
   };
   return (
@@ -98,6 +129,7 @@ function RegisterScreen() {
               onChange={(event) => setLastName(event.target.value)}
             />
           </div>
+          {error && <div className="error-message">{error}</div>}
           <button className="btn btn-primary mt-3" onClick={handleRegister}>
             Register
           </button>

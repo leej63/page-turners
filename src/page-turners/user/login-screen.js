@@ -9,16 +9,32 @@ import "./user.css";
 function LoginScreen() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("");
+  const [role, setRole] = useState("User");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const handleLogin = async () => {
-    try {
-      await dispatch(loginThunk({ username, password }));
-      // double check navigates to correct page after login
+    setError("");
+    let response = await dispatch(loginThunk({ username, password, role }));
+
+    if (response.error) {
+      if (response.error.message.includes("401")) {
+        console.log("Invalid Username/Password");
+        setError("Invalid Username/Password");
+        document.getElementById("username").focus();
+      } else {
+        console.log("Empty username or password");
+        setError("Empty username or password");
+        if (!username) {
+          document.getElementById("username").focus();
+        } else {
+          document.getElementById("password").focus();
+        }
+      }
+    } else {
+      console.log("success");
       navigate("/profile");
-    } catch (e) {
-      alert(e);
     }
   };
   return (
@@ -68,6 +84,8 @@ function LoginScreen() {
               onChange={(event) => setPassword(event.target.value)}
             />
           </div>
+
+          {error && <div className="error-message">{error}</div>}
           <button className="btn btn-primary mt-2" onClick={handleLogin}>
             Login
           </button>

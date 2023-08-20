@@ -1,11 +1,12 @@
 import axios from 'axios';
-const SERVER_API_URL = process.env.REACT_APP_SERVER_API_URL;
+// const SERVER_API_URL = process.env.REACT_APP_SERVER_API_URL;
+const SERVER_API_URL = 'http://localhost:4000/api'
 const USERS_URL = `${SERVER_API_URL}/users`;
 const api = axios.create({ withCredentials: true });
 
 
-export const login = async ({ username, password }) => {
-    const response = await api.post(`${USERS_URL}/login`, { username, password });
+export const login = async ({ username, password, role }) => {
+    const response = await api.post(`${USERS_URL}/login`, { username, password, role });
     const user = response.data;
     return user;
 };

@@ -18,11 +18,12 @@ export const logout = async () => {
 
 export const profile = async () => {
     const response = await api.get(`${USERS_URL}/profile`);
-    return response;
+    const user = response.data;
+    return user;
 };
 
 export const updateUser = async (user) => {
-    const response = await api.put(`${USERS_URL}/${user._id}`, user);
+    const response = await api.put(`${USERS_URL}/${user.profile._id}`, user.profile);
     return response.data;
 };
 

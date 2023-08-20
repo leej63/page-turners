@@ -21,7 +21,6 @@ function RegisterScreen() {
     let response = await dispatch(registerThunk({ username, password, firstName, lastName, role }));
 
     if (response.error) {
-      console.log(response)
       if (response.error.message.includes("409")) {
         console.log("Username already exists in database");
         setError("Username already exists in database");
@@ -57,7 +56,6 @@ function RegisterScreen() {
   };
   return (
     <div className="register-container">
-      <Nav />
       <div className="register-form">
         <h1 className="register-title">Register</h1>
         <form>

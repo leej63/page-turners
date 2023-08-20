@@ -4,6 +4,7 @@ import "./nav.css";
 
 function Nav() {
     const { currentUser } = useSelector((state) => state.user);
+
     return (
     <div>
       <header className="banner">
@@ -14,7 +15,7 @@ function Nav() {
                 Home
             </NavLink>
                 {/* change to currentUser when done testing for profile page */}
-            {!currentUser && <NavLink className="nav-link" activeClassName="active" to="/profile">
+            {currentUser && <NavLink className="nav-link" activeClassName="active" to="/profile">
             Profile
             </NavLink>}
             {!currentUser && <NavLink className="nav-link" activeClassName="active" to="/register">

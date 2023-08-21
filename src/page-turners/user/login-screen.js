@@ -19,7 +19,7 @@ function LoginScreen() {
     let response = await dispatch(loginThunk({ username, password, role }));
 
     if (response.error) {
-      if (response.error.message.includes("401")) {
+      if (response.error.message.includes("401") || response.error.message.includes("404")) {
         console.log("Invalid Username/Password");
         setError("Invalid Username/Password");
         document.getElementById("username").focus();

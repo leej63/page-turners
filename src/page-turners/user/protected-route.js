@@ -9,7 +9,8 @@ function ProtectedRoute({ children }) {
   const navigate = useNavigate();
   useEffect(() => {
     const load = async () => {
-      const { payload } = await dispatch(profileThunk());
+      const userId = localStorage.getItem("userId");
+      const { payload } = await dispatch(profileThunk(userId));
       if (!payload) {
         navigate("/login");
       }

@@ -1,5 +1,4 @@
-.login-form,
-.register-form {
+.profile-form {
     width: 100%;
     max-width: calc(100% - 40px);
     padding: 20px;
@@ -14,8 +13,7 @@
 
 /* Media query for larger screens */
 @media (min-width: 768px) {
-    .login-form,
-    .register-form {
+    .profile-form {
         max-width: 400px;
         margin-left: auto;
         margin-right: auto;
@@ -24,8 +22,7 @@
 
 
 
-.login-title,
-.register-title {
+.profile-title{
     margin-bottom: 20px;
     font-size: 24px;
     font-weight: bold;

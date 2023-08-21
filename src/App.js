@@ -34,7 +34,7 @@ function App() {
             <Route path="/register" element={<RegisterScreen />} />
             <Route path="/login" element={<LoginScreen />} />
             <Route path="/search" element={<SearchScreen />} />
-            <Route path="/details" element={<DetailScreen />} />
+            <Route path="/details/:bookId" element={<DetailScreen />} />
           </Routes>
         </HashRouter>
       </AuthContext>

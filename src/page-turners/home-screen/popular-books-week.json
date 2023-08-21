@@ -1,0 +1,20 @@
+[
+    {
+        "id": 211,
+        "title": "Comprehensive Networking Glossary and Acronym Guide",
+        "author": "Gary Scott Malkin",
+        "imageSrc": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/malkin.jpg"
+    },
+    {
+        "id": 262,
+        "title": "JUnit Recipes",
+        "author": "Scott Stirling",
+        "imageSrc": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/rainsberger.jpg"
+    },
+    {
+        "id": 208,
+        "title": "Subversion in Action",
+        "author": "Jeffrey Machols",
+        "imageSrc": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/machols.jpg"
+    }
+]

@@ -7,7 +7,8 @@ function AuthContext({ children }) {
   const dispatch = useDispatch();
   useEffect(() => {
     const load = async () => {
-      let response = await dispatch(profileThunk());
+      const userId = localStorage.getItem("userId");
+      let response = await dispatch(profileThunk(userId));
       setLoading(false);
     };
     load();

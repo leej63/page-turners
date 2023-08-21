@@ -33,7 +33,7 @@ function LoginScreen() {
         }
       }
     } else {
-      console.log("success");
+      localStorage.setItem("userId", response.payload._id);
       navigate("/profile");
     }
   };

@@ -1,0 +1,20 @@
+[
+    {
+        "id": 261,
+        "title": "DSLs in Boo: Domain-Specific Languages in .NET",
+        "author": "Ayende Rahien",
+        "imageSrc": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/rahien.jpg"
+    },
+    {
+        "id": 262,
+        "title": "JUnit Recipes",
+        "author": "Scott Stirling",
+        "imageSrc": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/rainsberger.jpg"
+    },
+    {
+        "id": 265,
+        "title": "Scala in Action",
+        "author": "Nilanjan Raychaudhuri",
+        "imageSrc": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/raychaudhuri.jpg"
+    }
+]

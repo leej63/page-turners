@@ -11,9 +11,33 @@ function SearchBar() {
     const [category, setCategory] = useState("");
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const handleSearch = async () => {
+    const handleSearchByTitle = async () => {
         try {
-            // await dispatch(searchThunk({ title, author, isbn, category }));
+            // let response = await dispatch(searchThunk({ title }));
+            // navigate("");
+        } catch (e) {
+            alert(e);
+        }
+    };
+    const handleSearchByAuthor = async () => {
+        try {
+            // let response = await dispatch(searchThunk({ author }));
+            // navigate("");
+        } catch (e) {
+            alert(e);
+        }
+    };
+    const handleSearchByIsbn = async () => {
+        try {
+            // let response = await dispatch(searchThunk({ isbn }));
+            // navigate("");
+        } catch (e) {
+            alert(e);
+        }
+    };
+    const handleSearchByCategory = async () => {
+        try {
+            // let response = await dispatch(searchThunk({ category }));
             // navigate("");
         } catch (e) {
             alert(e);
@@ -33,10 +57,13 @@ function SearchBar() {
                         className="form-control"
                         type="text"
                         id="title"
-                        placeholder="Enter by title"
-                        // value={}
-                        // onChange={}
+                        placeholder="Enter book title"
+                        value={title}
+                        onChange={(event) => setTitle(event.target.value)}
                     />
+                    <button className="btn btn-primary mt-2" onClick={handleSearchByTitle}>
+                    Search
+                    </button>
                 </div>
                 <div className="form-group mt2">
                     <label htmlFor="author" className="form-label">
@@ -46,10 +73,13 @@ function SearchBar() {
                         className="form-control"
                         type="text"
                         id="author"
-                        placeholder="Enter by author"
-                        // value={}
-                        // onChange={}
+                        placeholder="Enter author name"
+                        value={author}
+                        onChange={(event) => setAuthor(event.target.value)}
                     />
+                    <button className="btn btn-primary mt-2" onClick={handleSearchByAuthor}>
+                    Search
+                    </button>
                 </div>
                 <div className="form-group mt2">
                     <label htmlFor="isbn" className="form-label">
@@ -59,10 +89,13 @@ function SearchBar() {
                         className="form-control"
                         type="text"
                         id="isbn"
-                        placeholder="Enter by ISBN"
-                        // value={}
-                        // onChange={}
+                        placeholder="Enter book ISBN"
+                        value={isbn}
+                        onChange={(event) => setIsbn(event.target.value)}
                     />
+                    <button className="btn btn-primary mt-2" onClick={handleSearchByIsbn}>
+                    Search
+                    </button>
                 </div>
                 <div className="form-group mt2">
                     <label htmlFor="category" className="form-label">
@@ -72,13 +105,11 @@ function SearchBar() {
                         className="form-control"
                         type="text"
                         id="category"
-                        placeholder="Enter by Category"
-                        // value={}
-                        // onChange={}
+                        placeholder="Enter category"
+                        value={category}
+                        onChange={(event) => setCategory(event.target.value)}
                     />
-                </div>
-                <div>
-                    <button className="btn btn-primary mt-2" onClick={handleSearch}>
+                    <button className="btn btn-primary mt-2" onClick={handleSearchByCategory}>
                     Search
                     </button>
                 </div>

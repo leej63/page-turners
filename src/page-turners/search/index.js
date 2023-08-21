@@ -1,13 +1,13 @@
 import React from "react";
 import Nav from "../../nav";
+import SearchBar from "./search-bar";
 
 
 function SearchScreen() {
     return (
         <div>
             <Nav/>
-            <h4>Search Screen</h4>
-            <p>Search screen page content goes here.</p>
+            <SearchBar/>
         </div>
     )
 }

@@ -13,6 +13,12 @@ export const findBooks = async () => {
     return books;
 }
 
+export const findBookById = async (bookID) => {
+    const response = await axios.get(`${BOOKS_API}/${bookID}`);
+    const book = response.data;
+    return book;
+}
+
 export const deleteBook = async (bid) => {
     const response = await axios.delete(`${BOOKS_API}/${bid}`);
     return response.data;

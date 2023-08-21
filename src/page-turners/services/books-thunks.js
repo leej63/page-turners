@@ -7,6 +7,14 @@ export const findBooksThunk = createAsyncThunk(
     async () => await service.findBooks()
 );
 
+export const findBookThunk = createAsyncThunk(
+  "books/findBookById",
+  async (bookId) => {
+    const foundBook = await service.findBookById(bookId);
+    return foundBook;
+  }
+);
+
 export const deleteBookThunk = createAsyncThunk(
     'books/deleteBook',
     async (bookId) => {

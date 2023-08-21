@@ -1,0 +1,20 @@
+[
+    {
+        "id": 331,
+        "title": "Java Servlets by Example",
+        "author": "Alan R. Williamson",
+        "imageSrc": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/williamson.jpg"
+    },
+    {
+        "id": 591,
+        "title": "PowerShell in Depth",
+        "author": "Don Jones",
+        "imageSrc": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/jones2.jpg"
+    },
+    {
+        "id": 580,
+        "title": "50 Android Hacks",
+        "author": "Carlos M. Sessa",
+        "imageSrc": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/sessa.jpg"
+    }
+]

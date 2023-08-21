@@ -1,20 +1,20 @@
 [
     {
-        "id": 331,
-        "title": "Java Servlets by Example",
-        "author": "Alan R. Williamson",
-        "imageSrc": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/williamson.jpg"
+        "id": 45,
+        "title": "The Quick Python Book, Second Edition",
+        "author": "Naomi R. Ceder",
+        "imageSrc": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/ceder.jpg"
     },
     {
-        "id": 591,
-        "title": "PowerShell in Depth",
-        "author": "Don Jones",
-        "imageSrc": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/jones2.jpg"
+        "id": 52,
+        "title": "Spring Dynamic Modules in Action",
+        "author": "Arnaud Cogoluegnes",
+        "imageSrc": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/cogoluegnes.jpg"
     },
     {
-        "id": 580,
-        "title": "50 Android Hacks",
-        "author": "Carlos M. Sessa",
-        "imageSrc": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/sessa.jpg"
+        "id": 43,
+        "title": "Silverlight 2 in Action",
+        "author": "Chad A. Campbell",
+        "imageSrc": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/campbell.jpg"
     }
 ]

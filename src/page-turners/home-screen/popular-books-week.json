@@ -1,9 +1,9 @@
 [
     {
-        "id": 261,
-        "title": "DSLs in Boo: Domain-Specific Languages in .NET",
-        "author": "Ayende Rahien",
-        "imageSrc": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/rahien.jpg"
+        "id": 211,
+        "title": "Comprehensive Networking Glossary and Acronym Guide",
+        "author": "Gary Scott Malkin",
+        "imageSrc": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/malkin.jpg"
     },
     {
         "id": 262,
@@ -12,9 +12,9 @@
         "imageSrc": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/rainsberger.jpg"
     },
     {
-        "id": 265,
-        "title": "Scala in Action",
-        "author": "Nilanjan Raychaudhuri",
-        "imageSrc": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/raychaudhuri.jpg"
+        "id": 208,
+        "title": "Subversion in Action",
+        "author": "Jeffrey Machols",
+        "imageSrc": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/machols.jpg"
     }
 ]

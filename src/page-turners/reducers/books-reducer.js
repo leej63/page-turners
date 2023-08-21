@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import books from './books.json';
-import { updateBookThunk, createBookThunk, deleteBookThunk, findBooksThunk } from "../services/books-thunks";
+import { updateBookThunk, createBookThunk, deleteBookThunk, findBooksThunk, findBookByISBNThunk, findBookByTitleThunk, findBooksByAuthorThunk, findBooksByCategoryThunk } from "../services/books-thunks";
 const initialState = {
     books: [],
     loading: false
@@ -35,8 +35,56 @@ const booksSlice = createSlice({
         [findBooksThunk.rejected]:
             (state, action) => {
                 state.loading = false
+                state.error = action.error },
+        [findBooksByAuthorThunk.pending]:
+            (state) => {
+                state.loading = true
+                state.books = [] },
+        [findBooksByAuthorThunk.fulfilled]:
+            (state, { payload }) => {
+                state.loading = false
+                state.books = payload },
+        [findBooksByAuthorThunk.rejected]:
+            (state, action) => {
+                state.loading = false
+                state.error = action.error },
+        [findBooksByCategoryThunk.pending]:
+            (state) => {
+                state.loading = true
+                state.books = [] },
+        [findBooksByCategoryThunk.fulfilled]:
+            (state, { payload }) => {
+                state.loading = false
+                state.books = payload },
+        [findBooksByCategoryThunk.rejected]:
+            (state, action) => {
+                state.loading = false
+                state.error = action.error },
+        [findBookByISBNThunk.pending]:
+            (state) => {
+                state.loading = true
+                state.books = [] },
+        [findBookByISBNThunk.fulfilled]:
+            (state, { payload }) => {
+                state.loading = false
+                state.books = payload },
+        [findBookByISBNThunk.rejected]:
+            (state, action) => {
+                state.loading = false
+                state.error = action.error },
+        [findBookByTitleThunk.pending]:
+            (state) => {
+                state.loading = true
+                state.books = [] },
+        [findBookByTitleThunk.fulfilled]:
+            (state, { payload }) => {
+                state.loading = false
+                state.books = payload },
+        [findBookByTitleThunk.rejected]:
+            (state, action) => {
+                state.loading = false
                 state.error = action.error }
-    },
+},
     reducers: {}
 });
 

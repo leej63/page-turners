@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
 import "./search.css";
+import { findBookByISBNThunk, findBookByTitleThunk, findBooksByAuthorThunk, findBooksByCategoryThunk } from "../services/books-thunks";
 
 
 function SearchBar() {
@@ -13,32 +14,32 @@ function SearchBar() {
     const dispatch = useDispatch();
     const handleSearchByTitle = async () => {
         try {
-            // let response = await dispatch(searchThunk({ title }));
-            // navigate("");
+            let response = await dispatch(findBookByTitleThunk({ title }));
+            // navigate("/details/${response._id}");
         } catch (e) {
             alert(e);
         }
     };
     const handleSearchByAuthor = async () => {
         try {
-            // let response = await dispatch(searchThunk({ author }));
-            // navigate("");
+            let response = await dispatch(findBooksByAuthorThunk({ author }));
+            // navigate("/search/`${author}`");
         } catch (e) {
             alert(e);
         }
     };
     const handleSearchByIsbn = async () => {
         try {
-            // let response = await dispatch(searchThunk({ isbn }));
-            // navigate("");
+            let response = await dispatch(findBookByISBNThunk({ isbn }));
+            // navigate("/details/`${response._id}`");
         } catch (e) {
             alert(e);
         }
     };
     const handleSearchByCategory = async () => {
         try {
-            // let response = await dispatch(searchThunk({ category }));
-            // navigate("");
+            let response = await dispatch(findBooksByCategoryThunk({ category }));
+            // navigate("/search/`${category}`");
         } catch (e) {
             alert(e);
         }

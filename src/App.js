@@ -14,7 +14,7 @@ import booksReducer from "./page-turners/reducers/books-reducer";
 import Nav from "./nav";
 import AuthContext from "./page-turners/user/auth-context";
 import ProtectedRoute from "./page-turners/user/protected-route";
-import SearchResultsScreen from "./page-turners/search/search-results";
+
 
 const store = configureStore({
   reducer: {
@@ -35,7 +35,7 @@ function App() {
             <Route path="/register" element={<RegisterScreen />} />
             <Route path="/login" element={<LoginScreen />} />
             <Route path="/search" element={<SearchScreen />} />
-            <Route path="/search/:searchCriteria" element={<SearchResultsScreen />} />
+            {/* <Route path="/search/:searchCriteria" element={<SearchResultsScreen />} /> */}
             <Route path="/details/:bookId" element={<DetailScreen />} />
           </Routes>
         </HashRouter>

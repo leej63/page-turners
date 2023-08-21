@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
-import "./search.css";
 import { findBookByISBNThunk, findBookByTitleThunk, findBooksByAuthorThunk, findBooksByCategoryThunk } from "../services/books-thunks";
+import axios from "axios";
+import BookCard from "./book-card";
 
 
 function SearchBar() {
@@ -10,6 +11,8 @@ function SearchBar() {
     const [author, setAuthor] = useState("");
     const [isbn, setIsbn] = useState("");
     const [category, setCategory] = useState("");
+    const [search, setSearch] = useState("");
+    const [bookData, setData] = useState([]);
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const handleSearchByTitle = async () => {
@@ -44,13 +47,23 @@ function SearchBar() {
             alert(e);
         }
     };
+    const handleSearch = async () => {
+        try {
+            axios.get('https://www.googleapis.com/books/v1/volumes?q=' + search + '&key=AIzaSyBXZf0vQpCKuip_elWNsr9KfGPzpgtUzxg' + '&maxResults=40')
+                .then(res=>setData(res.data.items))
+                .catch(err=>console.log(err))
+            // navigate(`/search/${search}`);
+        } catch (e) {
+            alert(e);
+        }
+    };
     return (
     <div className="search-container">
         <div className="search-form">
             <h1 className="search-title">Search</h1>
-            <p>Search for books by title, author, ISBN, or Category</p>
+            {/* <p>Search for books by title, author, ISBN, or Category</p> */}
             <form>
-                <div className="form-group mt2">
+                {/* <div className="form-group mt2">
                     <label htmlFor="title" className="form-label">
                         Search by Title
                     </label>
@@ -113,8 +126,28 @@ function SearchBar() {
                     <button className="btn btn-primary mt-2" onClick={handleSearchByCategory}>
                     Search
                     </button>
+                </div> */}
+                <div className="form-group mt2">
+                    <label htmlFor="search" className="form-label">
+                    </label>
+                    <input
+                        className="form-control"
+                        type="text"
+                        id="search"
+                        placeholder="Search for books by title, author, category or keywords"
+                        value={search}
+                        onChange={(event) => setSearch(event.target.value)}
+                    />
+                    <button className="btn btn-primary mt-2" onClick={handleSearch}>
+                    Search
+                    </button>
                 </div>
             </form>
+        </div>
+        <div className="container">
+            {
+                <BookCard book={bookData}/>
+            }
         </div>
     </div>
     )

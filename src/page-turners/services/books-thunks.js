@@ -39,6 +39,14 @@ export const findBooksByAuthorThunk = createAsyncThunk(
   }
 );
 
+export const findBookmarkByUserIdthunk = createAsyncThunk(
+  "books/findBookmarkByUserId",
+  async () => {
+    const foundBooks = await service.findBookmarkByUserId();
+    return foundBooks;
+  }
+);
+
 export const findBooksByCategoryThunk = createAsyncThunk(
   "books/findBooksByCategory",
   async (category) => {

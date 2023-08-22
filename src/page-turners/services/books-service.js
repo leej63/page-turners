@@ -40,6 +40,12 @@ export const findBooksByAuthor = async (author) => {
     return books;
 }
 
+export const findBookmarkByUserId = async () => {
+    const response = await axios.get(`${BOOKS_API}/users/1`);
+    const books = response.data;
+    return books;
+}
+
 export const findBooksByCategory = async (category) => {
     const response = await axios.get(`${BOOKS_API}/category/${category}`);
     const books = response.data;

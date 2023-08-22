@@ -1,5 +1,8 @@
 import axios from 'axios';
-const BOOKS_API = 'http://localhost:4000/api/books';
+// const BOOKS_API = 'http://localhost:4000/api/books';
+// const SERVER_API_URL = process.env.REACT_APP_SERVER_API_URL;
+// const BOOKS_API = `${SERVER_API_URL}/books`;
+const BOOKS_API = `https://page-turner-node-18efed809441.herokuapp.com/api/books`;
 
 
 export const createBook = async (book) => {
@@ -49,6 +52,8 @@ export const deleteBook = async (bid) => {
 }
 
 export const updateBook = async (book) => {
+    console.log(book);
     const response = await axios.put(`${BOOKS_API}/${book._id}`, book);
+    console.log(response);
     return book;
 }

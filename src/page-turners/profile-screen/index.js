@@ -68,7 +68,7 @@ function ProfileScreen() {
   return (
     <div className="profile-container">
       <div className="profile-form">
-        <h1 className="profile-title">Profile Screen</h1>
+        <h1 className="profile-title">Profile</h1>
         {profile && (
           <>
             <form>

@@ -66,6 +66,7 @@ function DetailScreen() {
             ...book,
             review: editedReview
         }));
+        window.location.reload();
     };
 
     return (

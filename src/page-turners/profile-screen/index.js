@@ -9,10 +9,13 @@ import {
   updateUserThunk,
 } from "../services/auth-thunks";
 
+import { findBookmarkByUserIdthunk, updateBookThunk } from "../services/books-thunks";
+
 function ProfileScreen() {
   const { currentUser } = useSelector((state) => state.user);
   const [profile, setProfile] = useState(currentUser);
   const [error, setError] = useState("");
+  const [bookmarks, setBookmarks] = useState([]);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const save = async () => {
@@ -62,13 +65,36 @@ function ProfileScreen() {
       setProfile(payload);
     }
 
+    async function loadBookmarks() {
+      try {
+        const bookmarksResponse = await dispatch(findBookmarkByUserIdthunk());
+        setBookmarks(bookmarksResponse.payload); 
+      } catch (error) {
+      }
+    }
     loadProfile();
+    loadBookmarks();
   }, [dispatch]);
 
+  const handleRemoveBookmark = async (book) => {
+  try {
+    await dispatch(updateBookThunk({
+      ...book,
+      bookmarked: false
+    }));
+
+    setBookmarks((prevBookmarks) =>
+      prevBookmarks.filter((prevBook) => prevBook._id !== book._id)
+    );
+  } catch (error) {
+  }
+  };
+
   return (
+    <>
     <div className="profile-container">
       <div className="profile-form">
-        <h1 className="profile-title">Profile</h1>
+        <h1 className="profile-title">My Profile</h1>
         {profile && (
           <>
             <form>
@@ -164,6 +190,42 @@ function ProfileScreen() {
         )}
       </div>
     </div>
+
+<div className="profile-personal-container">
+  <div className="profile-form personal-form">
+    <h1 className="profile-title">My Bookmarks:</h1>
+    <div className="bookmark-list">
+      {bookmarks.length > 0 ? (
+        bookmarks.map((book) => (
+          <a
+            key={book._id}
+            href={`?#/details/${book._id}`}
+            className="bookmark-card"
+          >
+            <button
+              className="remove-button"
+              onClick={(event) => {
+                event.preventDefault();
+                handleRemoveBookmark(book);
+              }}
+            >
+              Remove
+            </button>
+            <img
+              className="book-thumbnail"
+              src={book.thumbnailUrl}
+              alt={book.title}
+            />
+            <h2 className="book-title">{book.title}</h2>
+          </a>
+        ))
+      ) : (
+        <p className="no-bookmarks-message">No bookmarks found.</p>
+      )}
+    </div>
+  </div>
+</div>
+    </>
   );
 }
 

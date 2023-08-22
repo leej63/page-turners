@@ -1,11 +1,13 @@
 import {React, useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { findBookThunk, updateBookThunk } from "../services/books-thunks";
 import "./detail-screen.css"; 
 import Rating from "react-rating-stars-component";
 import { FaStar, FaRegStar, FaBookmark, FaRegBookmark } from "react-icons/fa";
 
 function DetailScreen() {
+    const { currentUser } = useSelector((state) => state.user);
     const [book, setBook] = useState(null);
     const [isBookmarked, setIsBookmarked] = useState(false);
     const [editedReview, setEditedReview] = useState("");
@@ -13,6 +15,7 @@ function DetailScreen() {
     const dispatch = useDispatch();
     const hash = window.location.hash;
     const bookID = hash.replace("#/details/", "");
+    const navigate = useNavigate();
 
     useEffect(() => {    
         const fetchBookDetails = async () => {
@@ -31,6 +34,12 @@ function DetailScreen() {
     }
 
     const handleRatingChange = (newRating) => {
+        if (!currentUser || !currentUser.id) {
+            if (window.confirm("You need to log in to perform this action. Do you want to log in?")) {
+                navigate("/login");
+            }
+            return;
+        }
         setBook((prevBook) => ({
             ...prevBook,
             rating: newRating
@@ -43,6 +52,12 @@ function DetailScreen() {
     };
 
     const handleBookmarkToggle = () => {
+        if (!currentUser || !currentUser.id) {
+        if (window.confirm("You need to log in to perform this action. Do you want to log in?")) {
+            navigate("/login");
+        }
+        return;
+        }
         setIsBookmarked((prevIsBookmarked) => !prevIsBookmarked);
 
         dispatch(updateBookThunk({
@@ -52,6 +67,12 @@ function DetailScreen() {
     };
 
     const handleReviewEditClick = () => {
+        if (!currentUser || !currentUser.id) {
+        if (window.confirm("You need to log in to perform this action. Do you want to log in?")) {
+            navigate("/login");
+        }
+      return;
+    }
         setIsEditingReview(true);
     };
 

@@ -27,9 +27,6 @@ function Nav() {
             <NavLink className="nav-link" activeClassName="active" to="/search">
                 Search
             </NavLink>
-            <NavLink className="nav-link" activeClassName="active" to="/details">
-                Details
-            </NavLink>
     </nav>
    </div>
     )
